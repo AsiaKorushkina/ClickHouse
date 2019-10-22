@@ -21,11 +21,59 @@ The same as `position`, but returns `Array` of the `position`s for all needle<su
 
 For a case-insensitive search or/and in UTF-8 format use functions `multiSearchAllPositionsCaseInsensitive, multiSearchAllPositionsUTF8, multiSearchAllPositionsCaseInsensitiveUTF8`.
 
-## multiSearchFirstPosition(haystack, [needle<sub>1</sub>, needle<sub>2</sub>, ..., needle<sub>n</sub>])
+## multiSearchFirstPosition{#multisearchfirstposition}
 
-The same as `position` but returns the leftmost offset of the string `haystack` that is matched to some of the needles.
+Search for the substrings `needle_1, needle_2, ..., needle_n` in the string `haystack`.
+
+```sql
+SELECT multiSearchFirstPosition(haystack, [needle_1, needle_2, ..., needle_n])
+```
 
 For a case-insensitive search or/and in UTF-8 format use functions `multiSearchFirstPositionCaseInsensitive, multiSearchFirstPositionUTF8, multiSearchFirstPositionCaseInsensitiveUTF8`.
+
+**Parameters**
+
+- `haystack` —  The original string that will be searched.[String](../../data_types/string.md).
+- `needle_1, needle_2, ..., needle_n` — The substrings to search for in string.  [String](../../data_types/string.md).
+
+**Returned value**
+
+- Returns the leftmost offset of the string `haystack` that is matched to some of the needles, starting from 1, or returns 0 if the substrings were not found.
+
+Type: `UInt32`.
+
+**Example**
+
+Query:
+
+```sql
+SELECT multiSearchFirstPosition('Hello, world!', ['cat', 'dog', 'house'])
+```
+
+Result:
+
+```sql
+┌─multiSearchFirstPosition('Hello, world!', ['cat', 'dog', 'house'])─┐
+│                                                                  0 │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+Query:
+
+```sql
+ select multiSearchFirstPosition('Hello, world!', ['world', 'llo', 'o'])
+```
+
+Result:
+
+```sql
+┌─multiSearchFirstPosition('Hello, world!', ['world', 'llo', 'o'])─┐
+│                                                                3 │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+## multiSearchFirstPositionUTF8(haystack, [needle<sub>1, needle<sub>2</sub>, ..., needle<sub>n</sub>]){#multisearchfirstpositionutf8}
+
 
 ## multiSearchFirstIndex(haystack, [needle<sub>1</sub>, needle<sub>2</sub>, ..., needle<sub>n</sub>])
 
