@@ -33,8 +33,8 @@ For a case-insensitive search or/and in UTF-8 format use functions `multiSearchF
 
 **Parameters**
 
-- `haystack` —  The original string that will be searched.[String](../../data_types/string.md).
-- `needle_1, needle_2, ..., needle_n` — The substrings to search for in string.  [String](../../data_types/string.md).
+- `haystack` —  The original string that will be searched. [String](../../data_types/string.md).
+- `needle_1, needle_2, ..., needle_n` — The substrings to search for in string. [String](../../data_types/string.md).
 
 **Returned value**
 
@@ -82,8 +82,8 @@ multiSearchFirstPositionUTF8(haystack, [needle_1, needle_2, ..., needle_n])
 
 **Parameters**
 
-- `haystack` —  The original string that will be searched.[String](../../data_types/string.md).
-- `needle_1, needle_2, ..., needle_n` — The substrings to search for in string.  [String](../../data_types/string.md).
+- `haystack` —  The original string that will be searched. [String](../../data_types/string.md).
+- `needle_1, needle_2, ..., needle_n` — The substrings to search for in string. [String](../../data_types/string.md).
 
 **Returned value**
 
