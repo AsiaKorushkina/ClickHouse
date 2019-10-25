@@ -25,6 +25,8 @@ For a case-insensitive search or/and in UTF-8 format use functions `multiSearchA
 
 Search for the substrings in the string.
 
+**Syntax**
+
 ```sql
 multiSearchFirstPosition(haystack, [needle_1, needle_2, ..., needle_n])
 ```
@@ -75,6 +77,8 @@ Result:
 ## multiSearchFirstPositionUTF8 {#multisearchfirstpositionutf8}
 
 Search in UTF-8 format for the substrings in the string.
+
+**Syntax**
 
 ```sql
 multiSearchFirstPositionUTF8(haystack, [needle_1, needle_2, ..., needle_n])
