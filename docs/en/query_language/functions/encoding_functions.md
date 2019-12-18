@@ -29,7 +29,7 @@ Numbers are converted to big endian ("human readable") format. For numbers, olde
 
 **Parameters**
 
-- `arg` — A value to convert to hexadecimal. Types: [String](../../data_types/string.md), [UInt](../../data_types/int_uint.md), [Float](../../data_types/float.md), [Decimal](../../data_types/decimal.md), [Date](../../data_types/date.md) or [DateTime](../../data_types/datetime.md#data_type-datetime).
+- `arg` — A value to convert to hexadecimal. Types: [String](../../data_types/string.md), [UInt](../../data_types/int_uint.md), [Float](../../data_types/float.md), [Decimal](../../data_types/decimal.md), [Date](../../data_types/date.md) or [DateTime](../../data_types/datetime.md).
 
 **Returned value**
 
