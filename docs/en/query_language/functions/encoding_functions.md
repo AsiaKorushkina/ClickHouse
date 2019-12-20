@@ -54,7 +54,7 @@ SELECT char(0xE4, 0xBD, 0xA0, 0xE5, 0xA5, 0xBD) AS hello;
 Result:
 ```text
 ┌─hello─┐
-│ 你好   │
+│ 你好  │
 └───────┘
 ```
 
