@@ -12,7 +12,7 @@ char(number_1, [number_2, ..., number_n]);
 
 **Parameters**
 
-- `number_1, number_2, ..., number_n` — Numerical arguments interpreted as integers.
+- `number_1, number_2, ..., number_n` — Numerical arguments interpreted as integers. Types: [Int](../../data_types/int_uint.md), [Float](../../data_types/float.md).
 
 **Returned value**
 
@@ -54,7 +54,7 @@ SELECT char(0xE4, 0xBD, 0xA0, 0xE5, 0xA5, 0xBD) AS hello;
 Result:
 ```text
 ┌─hello─┐
-│ 你好  │
+│ 你好   │
 └───────┘
 ```
 
