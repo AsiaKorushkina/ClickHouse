@@ -392,11 +392,71 @@ SELECT
 └───────────────────────────┴──────────────────────────────┘
 ```
 
-## parseDateTimeBestEffort {#type_conversion_functions-parsedatetimebesteffort}
+## parseDateTimeBestEffort {#parsedatetimebesteffort}
 
-Parse a number type argument to a Date or DateTime type.
-different from toDate and toDateTime, parseDateTimeBestEffort can progress more complex date format.
-For more information, see the link: [Complex Date Format](https://xkcd.com/1179/)
+Converts a string representation of a date and time value to its DateTime equivalent.
+Different from toDate and toDateTime, parseDateTimeBestEffort can progress more complex date format.
+
+**Syntax**
+```sql
+parseDateTimeBestEffort(s[, time_zone]);
+```
+
+**Parameters**
+
+- `s` — A string containing a date to convert. [String](../../data_types/string.md).
+
+   The string to be parsed can take any of the following forms:
+   - A string with a date and a time component: `YYYYMMDDhhmmss`, `DD/MM/YYYY hh:mm:ss`, `DD-MM-YY hh:mm`, etc.
+   - A string with a date but no time component: `YYYYMMDD`, `YYYYMM`, `YYYY*MM`, `DD/MM/YYYY`, `DD-MM-YY`, `DD`, etc.
+   - A string with a time but no date component: `hh:mm:ss`, `hh:mm`, `hh` - if already have day of month.
+   - A string conforms to the RFC 1123 time format: `Tue, 02 Sep 2018 20:01:00 GMT`, etc.
+   - A string that includes time zone information and conforms to ISO 8601: `2020-12-12T17:36:00.0000000Z`, etc.
+   - A string that includes the date and time along with time zone offset information: `2020-12-12 17:36:00 -5:00`, etc.
+ 
+- `time_zone` — Optional second argument. Parse `s` according to the time zone. [String](../../data_types/string.md).
+
+**Returned value**
+
+- Data structure equivalent to the date specified in `s`.
+
+Type: `DateTime`.
+
+**Example**
+
+Query:
+
+```sql
+SELECT parseDateTimeBestEffort('12/12/2020 12:12:57')
+AS parseDateTimeBestEffort;
+```
+
+Result:
+
+```text
+┌─parseDateTimeBestEffort─┐
+│     2020-12-12 12:12:57 │
+└─────────────────────────┘
+```
+
+Query:
+
+```sql
+SELECT parseDateTimeBestEffort('Sat, 18 Aug 2018 07:22:16 GMT', 'Europe/Moscow') 
+AS parseDateTimeBestEffort
+```
+
+Result:
+
+```text
+┌─parseDateTimeBestEffort─┐
+│     2018-08-18 10:22:16 │
+└─────────────────────────┘
+```
+
+**See Also**
+
+- [Complex Date Format](https://xkcd.com/1179/)
 
 ## parseDateTimeBestEffortOrNull
 
