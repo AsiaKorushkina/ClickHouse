@@ -404,8 +404,7 @@ parseDateTimeBestEffort(s[, time_zone]);
 
 **Parameters**
 
-- `s` — A string containing a date to convert. [String](../../data_types/string.md).
-
+- `s` — A string containing a date to convert. [String](../../data_types/string.md).  
     The string to be parsed can take any of the following forms:
     - A string with a date and a time component: `YYYYMMDDhhmmss`, `DD/MM/YYYY hh:mm:ss`, `DD-MM-YY hh:mm`, etc.
     - A string with a date but no time component: `YYYYMMDD`, `YYYYMM`, `YYYY*MM`, `DD/MM/YYYY`, `DD-MM-YY`, `DD`, etc.
