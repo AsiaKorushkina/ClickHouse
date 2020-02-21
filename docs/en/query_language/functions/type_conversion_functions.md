@@ -405,14 +405,13 @@ parseDateTimeBestEffort(s[, time_zone]);
 **Parameters**
 
 - `s` — A string containing a date to convert. [String](../../data_types/string.md).
-
-   The string to be parsed can take any of the following forms:
-   - A string with a date and a time component: `YYYYMMDDhhmmss`, `DD/MM/YYYY hh:mm:ss`, `DD-MM-YY hh:mm`, etc.
-   - A string with a date but no time component: `YYYYMMDD`, `YYYYMM`, `YYYY*MM`, `DD/MM/YYYY`, `DD-MM-YY`, `DD`, etc.
-   - A string with a time but no date component: `hh:mm:ss`, `hh:mm`, `hh` - if already have day of month.
-   - A string conforms to the RFC 1123 time format: `Tue, 02 Sep 2018 20:01:00 GMT`, etc.
-   - A string that includes time zone information and conforms to ISO 8601: `2020-12-12T17:36:00.0000000Z`, etc.
-   - A string that includes the date and time along with time zone offset information: `2020-12-12 17:36:00 -5:00`, etc.
+    The string to be parsed can take any of the following forms:
+    - A string with a date and a time component: `YYYYMMDDhhmmss`, `DD/MM/YYYY hh:mm:ss`, `DD-MM-YY hh:mm`, etc.
+    - A string with a date but no time component: `YYYYMMDD`, `YYYYMM`, `YYYY*MM`, `DD/MM/YYYY`, `DD-MM-YY`, `DD`, etc.
+    - A string with a time but no date component: `hh:mm:ss`, `hh:mm`, `hh` - if already have day of month.
+    - A string conforms to the RFC 1123 time format: `Tue, 02 Sep 2018 20:01:00 GMT`, etc.
+    - A string that includes time zone information and conforms to ISO 8601: `2020-12-12T17:36:00.0000000Z`, etc.
+    - A string that includes the date and time along with time zone offset information: `2020-12-12 17:36:00 -5:00`, etc.
  
 - `time_zone` — Optional second argument. Parse `s` according to the time zone. [String](../../data_types/string.md).
 
