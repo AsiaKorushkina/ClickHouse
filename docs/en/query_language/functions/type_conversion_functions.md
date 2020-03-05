@@ -455,7 +455,7 @@ Result:
 
 **See Also**
 
-- [Complex Date Format](https://xkcd.com/1179/)
+- [ISO 8601 announcement by @xkcd](https://xkcd.com/1179/)
 
 ## parseDateTimeBestEffortOrNull
 
