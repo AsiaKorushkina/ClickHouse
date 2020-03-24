@@ -4,7 +4,7 @@ In order for the functions below to work, the server config must specify the pat
 
 For information about creating reference lists, see the section "Dictionaries".
 
-## Multiple geobases
+## Multiple geobases {#multiplegeobases}
 
 ClickHouse supports working with multiple alternative geobases (regional hierarchies) simultaneously, in order to support various perspectives on which countries certain regions belong to.
 
@@ -102,7 +102,7 @@ Example: `regionToContinent(toUInt32(213)) = 10001` converts Moscow (213) to Eur
 
 ### regionToTopContinent (#regiontotopcontinent)
 
-Converts a region to the highest continent in the hierarchy.
+Finds the highest continent in the hierarchy for the region.
 
 **Syntax**
 
@@ -113,7 +113,7 @@ regionToTopContinent(id[, geobase]);
 **Parameters**
 
 - `id` —  the region ID from the Yandex geobase. [UInt32](../../data_types/int_uint.md).
-- `geobase` — Optional. The dictionary key. [String](../../data_types/string.md).
+- `geobase` — Optional. The dictionary key that is used in [multiple geobases](#multiplegeobases). [String](../../data_types/string.md).
 
 
 **Returned value(s)**
@@ -122,8 +122,6 @@ regionToTopContinent(id[, geobase]);
 - 0, if there is none.
 
 Type: `UInt32`.
-
-**Example**
 
 
 ### regionToPopulation(id[, geobase])
