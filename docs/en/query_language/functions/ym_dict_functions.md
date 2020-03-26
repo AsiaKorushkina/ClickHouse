@@ -4,7 +4,7 @@ In order for the functions below to work, the server config must specify the pat
 
 For information about creating reference lists, see the section "Dictionaries".
 
-## Multiple geobases {#multiplegeobases}
+## Multiple Geobases {#multiplegeobases}
 
 ClickHouse supports working with multiple alternative geobases (regional hierarchies) simultaneously, in order to support various perspectives on which countries certain regions belong to.
 
