@@ -116,7 +116,7 @@ regionToTopContinent(id[, geobase]);
 - `geobase` —  Dictionary key. See [Multiple Geobases](#multiplegeobases). [String](../../data_types/string.md). Optional.
 
 
-**Returned values**
+**Returned value**
 
 - Identifier of the top level continent (the latter when you climb the hierarchy of regions).
 - 0, if there is none.
