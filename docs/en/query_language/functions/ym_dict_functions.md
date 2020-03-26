@@ -118,7 +118,7 @@ regionToTopContinent(id[, geobase]);
 
 **Returned value(s)**
 
-- The continent (the latter when you climb the hierarchy of regions), including it.
+- Identifier of the top level continent (the latter when you climb the hierarchy of regions).
 - 0, if there is none.
 
 Type: `UInt32`.
