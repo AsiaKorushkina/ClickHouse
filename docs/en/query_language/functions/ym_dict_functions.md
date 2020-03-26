@@ -112,7 +112,7 @@ regionToTopContinent(id[, geobase]);
 
 **Parameters**
 
-- `id` —  the region ID from the Yandex geobase. [UInt32](../../data_types/int_uint.md).
+- `id` —  Region ID from the Yandex geobase. [UInt32](../../data_types/int_uint.md).
 - `geobase` — Optional. The dictionary key that is used in [multiple geobases](#multiplegeobases). [String](../../data_types/string.md).
 
 
