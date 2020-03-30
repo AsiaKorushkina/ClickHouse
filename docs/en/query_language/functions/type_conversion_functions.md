@@ -411,7 +411,7 @@ parseDateTimeBestEffort(s[, time_zone]);
 
 **Supported non-standart formats**
 
-- A string containing 9..10 digits: `NNNNNNNNNN`.
+- A string containing 9..10 digit unixtimestamp.
 - A string with a date and a time component: `YYYYMMDDhhmmss`, `DD/MM/YYYY hh:mm:ss`, `DD-MM-YY hh:mm`, `YYYY-MM-DD hh:mm:ss`, etc.
 - A string with a date but no time component: `YYYY`, `YYYYMM`, `YYYY*MM`, `DD/MM/YYYY`, `DD-MM-YY`, `DD`, etc.
 - A string with a time but no date component:  `hh:mm`, `hhmm`, `hh` - if already have day of month.
