@@ -112,13 +112,13 @@ SELECT toUInt64(nan), toUInt32(-32), toUInt16('16'), toUInt8(8.8)
 
 ## toFloat(32|64)OrNull
 
-## toDate
+## toDate {#todate}
 
 ## toDateOrZero
 
 ## toDateOrNull
 
-## toDateTime
+## toDateTime {#todatetime}
 
 ## toDateTimeOrZero
 
@@ -394,26 +394,29 @@ SELECT
 
 ## parseDateTimeBestEffort {#parsedatetimebesteffort}
 
-Converts a string representation of a date and time value to its DateTime equivalent.
-Different from toDate and toDateTime, parseDateTimeBestEffort can progress more complex date format.
+Converts a [String](../../data_types/string.md) to [DateTime](../../data_types/datetime.md#data_type-datetime) data type.
+The function parses ISO 8601, RFC 1123 and more complex date formats.
 
 **Syntax**
+
 ```sql
 parseDateTimeBestEffort(s[, time_zone]);
 ```
 
 **Parameters**
 
-- `s` — A string containing a date to convert. [String](../../data_types/string.md).  
-    The string to be parsed can take any of the following forms:
-    - A string with a date and a time component: `YYYYMMDDhhmmss`, `DD/MM/YYYY hh:mm:ss`, `DD-MM-YY hh:mm`, etc.
-    - A string with a date but no time component: `YYYYMMDD`, `YYYYMM`, `YYYY*MM`, `DD/MM/YYYY`, `DD-MM-YY`, `DD`, etc.
-    - A string with a time but no date component: `hh:mm:ss`, `hh:mm`, `hh` - if already have day of month.
-    - A string conforms to the RFC 1123 time format: `Tue, 02 Sep 2018 20:01:00 GMT`, etc.
-    - A string that includes time zone information and conforms to ISO 8601: `2020-12-12T17:36:00.0000000Z`, etc.
-    - A string that includes the date and time along with time zone offset information: `2020-12-12 17:36:00 -5:00`, etc.
- 
+- `s` — A string containing a date and time to convert. [String](../../data_types/string.md).  
 - `time_zone` — Optional second argument. Parse `s` according to the time zone. [String](../../data_types/string.md).
+
+
+**Supported non-standart formats**
+
+- A string containing 9..10 digits: `NNNNNNNNNN`.
+- A string with a date and a time component: `YYYYMMDDhhmmss`, `DD/MM/YYYY hh:mm:ss`, `DD-MM-YY hh:mm`, `YYYY-MM-DD hh:mm:ss`, etc.
+- A string with a date but no time component: `YYYY`, `YYYYMM`, `YYYY*MM`, `DD/MM/YYYY`, `DD-MM-YY`, `DD`, etc.
+- A string with a time but no date component:  `hh:mm`, `hhmm`, `hh` - if already have day of month.
+- A string that includes the date and time along with time zone offset information: `2020-12-12 17:36:00 -5:00`, etc.
+
 
 **Returned value**
 
@@ -453,9 +456,42 @@ Result:
 └─────────────────────────┘
 ```
 
+Query:
+
+```sql
+SELECT parseDateTimeBestEffort('1284101485') 
+AS parseDateTimeBestEffort
+```
+
+Result:
+
+```text
+┌─parseDateTimeBestEffort─┐
+│     2015-07-07 12:04:41 │
+└─────────────────────────┘
+```
+
+Query:
+
+```sql
+SELECT parseDateTimeBestEffort('2018-12-12 10:12:12') 
+AS parseDateTimeBestEffort
+```
+
+Result:
+
+```text
+┌─parseDateTimeBestEffort─┐
+│     2018-12-12 10:12:12 │
+└─────────────────────────┘
+```
+
 **See Also**
 
 - [ISO 8601 announcement by @xkcd](https://xkcd.com/1179/)
+- [RFC 1123](https://tools.ietf.org/html/rfc1123)
+- [toDate](#todate)
+- [toDateTime](#todatetime)
 
 ## parseDateTimeBestEffortOrNull
 
