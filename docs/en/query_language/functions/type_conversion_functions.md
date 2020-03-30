@@ -405,7 +405,7 @@ parseDateTimeBestEffort(s[, time_zone]);
 
 **Parameters**
 
-- `s` — A string containing a date and time to convert. [String](../../data_types/string.md).  
+- `s` — String containing a date and time to convert. [String](../../data_types/string.md).  
 - `time_zone` — Optional second argument. Parse `s` according to the time zone. [String](../../data_types/string.md).
 
 
