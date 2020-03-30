@@ -395,7 +395,7 @@ SELECT
 ## parseDateTimeBestEffort {#parsedatetimebesteffort}
 
 Converts a [String](../../data_types/string.md) to [DateTime](../../data_types/datetime.md#data_type-datetime) data type.
-The function parses ISO 8601, RFC 1123 and more complex date formats.
+The function parses ISO 8601, RFC 1123 and some other date and time formats.
 
 **Syntax**
 
