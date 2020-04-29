@@ -9,6 +9,58 @@ toc_title: Other
 
 Returns a string with the name of the host that this function was performed on. For distributed processing, this is the name of the remote server host, if the function is performed on a remote server.
 
+## getMacro {#getmacro}
+
+Get the value for an input string from the `macros` section of the configuration file.
+
+**Syntax** 
+
+```sql
+getMacro(name);
+```
+
+**Parameters**
+
+- `name` — The input macro name. [String](../../sql_reference/data_types/string.md#string).
+
+**Returned value**
+
+- The value of corresponding [macros](https://clickhouse.tech/docs/en/operations/server_configuration_parameters/settings/#macros) from configuration file on current server.
+
+Type: [String](../../sql_reference/data_types/string.md).
+
+**Example**
+
+Input table:
+
+```sql
+SELECT * FROM system.macros;
+```
+
+```text
+┌─macro─┬─substitution─┐
+│ test  │ Value        │
+└───────┴──────────────┘
+```
+
+Query:
+
+```sql
+SELECT getMacro('test');
+```
+
+Result:
+
+```text
+┌─getMacro('test')─┐
+│ Value            │
+└──────────────────┘
+```
+
+**See Also**
+
+- [macros](https://clickhouse.tech/docs/en/operations/server_configuration_parameters/settings/#macros)
+
 ## FQDN {#fqdn}
 
 Returns the fully qualified domain name.
