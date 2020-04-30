@@ -21,7 +21,7 @@ getMacro(name);
 
 **Parameters**
 
-- `name` — The input macro name. [String](../../sql_reference/data_types/string.md#string).
+- `name` — Name of the parameter from the `macros` section. [String](../../sql_reference/data_types/string.md#string).
 
 **Returned value**
 
