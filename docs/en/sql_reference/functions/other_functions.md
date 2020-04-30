@@ -25,7 +25,7 @@ getMacro(name);
 
 **Returned value**
 
-- The value of corresponding [macros](https://clickhouse.tech/docs/en/operations/server_configuration_parameters/settings/#macros) from configuration file on current server.
+- Value of the specified parameter.
 
 Type: [String](../../sql_reference/data_types/string.md).
 
