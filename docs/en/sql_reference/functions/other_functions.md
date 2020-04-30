@@ -11,7 +11,7 @@ Returns a string with the name of the host that this function was performed on. 
 
 ## getMacro {#getmacro}
 
-Get the value for an input string from the [macros](https://clickhouse.tech/docs/en/operations/server_configuration_parameters/settings/#macros) section of the configuration file.
+Gets the parameter value from the [macros](../../operations/server_configuration_parameters/settings.md#macros) section of the server configuration file `config.xml`.
 
 **Syntax** 
 
