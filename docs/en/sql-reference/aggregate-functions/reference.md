@@ -729,19 +729,92 @@ For example, `groupArray (1) (x)` is equivalent to `[any (x)]`.
 
 In some cases, you can still rely on the order of execution. This applies to cases when `SELECT` comes from a subquery that uses `ORDER BY`.
 
-## groupArrayInsertAt(value, position) {#grouparrayinsertatvalue-position}
+## groupArrayInsertAt(value, position) {#grouparrayinsertat}
 
 Inserts a value into the array in the specified position.
 
-!!! note "Note"
-    This function uses zero-based positions, contrary to the conventional one-based positions for SQL arrays.
+**Syntax**
 
-Accepts the value and position as input. If several values ​​are inserted into the same position, any of them might end up in the resulting array (the first one will be used in the case of single-threaded execution). If no value is inserted into a position, the position is assigned the default value.
+```sql
+groupArrayInsertAt(expr, size)(x, pos);
+```
 
-Optional parameters:
+If several values ​​are inserted into the same position, any of them might end up in the resulting array (the first one will be used in the case of single-threaded execution).
 
--   The default value for substituting in empty positions.
--   The length of the resulting array. This allows you to receive arrays of the same size for all the aggregate keys. When using this parameter, the default value must be specified.
+**Parameters**
+
+- `x` — The value to be inserted. It can be any of the [supported data types](../../sql-reference/data-types/index.md).
+- `pos` — The position at which the specified element `value` is to be inserted. Index numbering in the array starts from zero. [UInt32](../../sql-reference/data-types/int-uint.md#uint-ranges).
+- `expr`— The default value for substituting in empty positions. Optional parameter.[Expression](../syntax.md#syntax-expressions) returning in the data type configured for the `value` attribute. If `expr` is not defined, the [default values](../../sql-reference/statements/create.md#create-default-values) will be set.
+- `size`— The length of the resulting array. When using this parameter, the default value must be specified.[UInt32](../../sql-reference/data-types/int-uint.md#uint-ranges).
+
+**Returned value**
+
+- An array with values located at the corresponding positions.
+
+Type: [Array](../../sql-reference/data-types/array.md#data-type-array).
+
+**Example**
+
+Query:
+
+```sql
+SELECT groupArrayInsertAt(toString(number), number * 2) AS groupArrayInsertAt
+FROM
+(
+    SELECT *
+    FROM system.numbers
+    LIMIT 5
+)
+```
+
+Result:
+
+```text
+┌─groupArrayInsertAt────────────────┐
+│ ['0','','1','','2','','3','','4'] │
+└───────────────────────────────────┘
+```
+
+Query:
+
+```sql
+SELECT groupArrayInsertAt('-')(toString(number), number * 2) AS groupArrayInsertAt
+FROM
+(
+    SELECT *
+    FROM system.numbers
+    LIMIT 5
+)
+```
+
+Result:
+
+```text
+┌─groupArrayInsertAt────────────────────┐
+│ ['0','-','1','-','2','-','3','-','4'] │
+└───────────────────────────────────────┘
+```
+
+Query:
+
+```sql
+SELECT groupArrayInsertAt('-', 5)(toString(number), number * 2) AS groupArrayInsertAt
+FROM
+(
+    SELECT *
+    FROM system.numbers
+    LIMIT 5
+)
+```
+
+Result:
+
+```text
+┌─groupArrayInsertAt────┐
+│ ['0','-','1','-','2'] │
+└───────────────────────┘
+```
 
 ## groupArrayMovingSum {#agg_function-grouparraymovingsum}
 
