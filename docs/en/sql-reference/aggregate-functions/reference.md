@@ -762,62 +762,89 @@ Type: [Array](../../sql-reference/data-types/array.md#data-type-array).
 Query:
 
 ```sql
-SELECT groupArrayInsertAt(toString(number), number * 2) AS groupArrayInsertAt
-FROM
-(
-    SELECT *
-    FROM system.numbers
-    LIMIT 5
-)
+SELECT groupArrayInsertAt(toString(number), number * 2) FROM numbers(5);
 ```
 
 Result:
 
 ```text
-┌─groupArrayInsertAt────────────────┐
-│ ['0','','1','','2','','3','','4'] │
-└───────────────────────────────────┘
+┌─groupArrayInsertAt(toString(number), multiply(number, 2))─┐
+│ ['0','','1','','2','','3','','4']                         │
+└───────────────────────────────────────────────────────────┘
 ```
 
 Query:
 
 ```sql
-SELECT groupArrayInsertAt('-')(toString(number), number * 2) AS groupArrayInsertAt
-FROM
-(
-    SELECT *
-    FROM system.numbers
-    LIMIT 5
-)
+SELECT groupArrayInsertAt('-')(toString(number), number * 2) FROM numbers(5);
 ```
 
 Result:
 
 ```text
-┌─groupArrayInsertAt────────────────────┐
-│ ['0','-','1','-','2','-','3','-','4'] │
-└───────────────────────────────────────┘
+┌─groupArrayInsertAt('-')(toString(number), multiply(number, 2))─┐
+│ ['0','-','1','-','2','-','3','-','4']                          │
+└────────────────────────────────────────────────────────────────┘
 ```
 
 Query:
 
 ```sql
-SELECT groupArrayInsertAt('-', 5)(toString(number), number * 2) AS groupArrayInsertAt
-FROM
-(
-    SELECT *
-    FROM system.numbers
-    LIMIT 5
-)
+SELECT groupArrayInsertAt('-', 5)(toString(number), number * 2) FROM numbers(5);
 ```
 
 Result:
 
 ```text
-┌─groupArrayInsertAt────┐
-│ ['0','-','1','-','2'] │
-└───────────────────────┘
+┌─groupArrayInsertAt('-', 5)(toString(number), multiply(number, 2))─┐
+│ ['0','-','1','-','2']                                             │
+└───────────────────────────────────────────────────────────────────┘
 ```
+
+Multi-threaded insertion of elements into one position.
+
+Query:
+
+```sql
+SELECT groupArrayInsertAt(number, 0) FROM numbers_mt(10) SETTINGS max_block_size = 1;
+```
+
+Result:
+
+```text
+┌─groupArrayInsertAt(number, 0)─┐
+│ [0]                           │
+└───────────────────────────────┘
+```
+
+Query:
+
+```sql
+SELECT groupArrayInsertAt(number, 0) FROM numbers_mt(10) SETTINGS max_block_size = 1;
+```
+
+Result:
+
+```text
+┌─groupArrayInsertAt(number, 0)─┐
+│ [2]                           │
+└───────────────────────────────┘
+```
+
+Query:
+
+```sql
+SELECT groupArrayInsertAt(number, 0) FROM numbers_mt(10) SETTINGS max_block_size = 1;
+```
+
+Result:
+
+```text
+┌─groupArrayInsertAt(number, 0)─┐
+│ [7]                           │
+└───────────────────────────────┘
+```
+
 
 ## groupArrayMovingSum {#agg_function-grouparraymovingsum}
 
