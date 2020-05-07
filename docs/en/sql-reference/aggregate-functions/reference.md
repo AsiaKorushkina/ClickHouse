@@ -750,7 +750,7 @@ If several values ​​are inserted into the same position, any of them might e
 
 **Returned value**
 
-- An array with values located at the corresponding positions.
+- Array with inserted values.
 
 Type: [Array](../../sql-reference/data-types/array.md#data-type-array).
 
