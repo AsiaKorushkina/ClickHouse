@@ -729,7 +729,7 @@ For example, `groupArray (1) (x)` is equivalent to `[any (x)]`.
 
 In some cases, you can still rely on the order of execution. This applies to cases when `SELECT` comes from a subquery that uses `ORDER BY`.
 
-## groupArrayInsertAt(value, position) {#grouparrayinsertat}
+## groupArrayInsertAt {#grouparrayinsertat}
 
 Inserts a value into the array in the specified position.
 
