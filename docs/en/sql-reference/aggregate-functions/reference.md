@@ -736,7 +736,7 @@ Inserts a value into the array at the specified position.
 **Syntax**
 
 ```sql
-groupArrayInsertAt(expr, size)(x, pos);
+groupArrayInsertAt(default_x, size)(x, pos);
 ```
 
 If several values ​​are inserted into the same position, any of them might end up in the resulting array (the first one will be used in the case of single-threaded execution).
