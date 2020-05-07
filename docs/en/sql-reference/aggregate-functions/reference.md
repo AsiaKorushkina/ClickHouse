@@ -739,7 +739,10 @@ Inserts a value into the array at the specified position.
 groupArrayInsertAt(default_x, size)(x, pos);
 ```
 
-If several values ​​are inserted into the same position, any of them might end up in the resulting array (the first one will be used in the case of single-threaded execution).
+If in one query several values are inserted into the same position, the function behaves in the following ways:
+
+- If a query is executed in a single thread, the first one of the inserted values is used.
+- If a query is executed in multiple threads, the resulting value is an undetermined one of the inserted values.
 
 **Parameters**
 
