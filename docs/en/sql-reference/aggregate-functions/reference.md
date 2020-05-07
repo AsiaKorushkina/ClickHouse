@@ -731,7 +731,7 @@ In some cases, you can still rely on the order of execution. This applies to cas
 
 ## groupArrayInsertAt {#grouparrayinsertat}
 
-Inserts a value into the array in the specified position.
+Inserts a value into the array at the specified position.
 
 **Syntax**
 
