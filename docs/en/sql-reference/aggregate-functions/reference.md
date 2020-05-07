@@ -745,7 +745,7 @@ If several values ​​are inserted into the same position, any of them might e
 
 - `x` — Value to be inserted. [Expression](../syntax.md#syntax-expressions) resulting in one of the [supported data types](../../sql-reference/data-types/index.md).
 - `pos` — The position at which the specified element `x` is to be inserted. Index numbering in the array starts from zero. [UInt32](../../sql-reference/data-types/int-uint.md#uint-ranges).
-- `expr`— The default value for substituting in empty positions. Optional parameter. [Expression](../syntax.md#syntax-expressions) returning in the data type configured for the `x` attribute. If `expr` is not defined, the [default values](../../sql-reference/statements/create.md#create-default-values) will be set.
+- `default_x`— Default value for substituting in empty positions. Optional parameter. [Expression](../syntax.md#syntax-expressions) resulting in the data type configured for the `x` parameter. If `default_x` is not defined, the [default values](../../sql-reference/statements/create.md#create-default-values) are used.
 - `size`— The length of the resulting array. Optional parameter. When using this parameter, the default value must be specified. [UInt32](../../sql-reference/data-types/int-uint.md#uint-ranges).
 
 **Returned value**
