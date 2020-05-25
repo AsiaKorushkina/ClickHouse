@@ -924,11 +924,97 @@ Result:
 
 Takes state of aggregate function. Returns result of aggregation (finalized state).
 
-## runningAccumulate {#function-runningaccumulate}
+## runningAccumulate {#runningaccumulate}
 
-Takes the states of the aggregate function and returns a column with values, are the result of the accumulation of these states for a set of block lines, from the first to the current line.
-For example, takes state of aggregate function (example runningAccumulate(uniqState(UserID))), and for each row of block, return result of aggregate function on merge of states of all previous rows and current row.
-So, result of function depends on partition of data to blocks and on order of data in block.
+Takes states of the aggregate function, and for each row of block returns the result of aggregate function on merge of states of all previous rows and the current row.
+
+**Syntax**
+
+```sql
+runningAccumulate(agg_state[, grouping]);
+```
+
+**Parameters**
+
+- `agg_state` — State of the aggregate function. [AggregateFunction](../../sql-reference/data-types/aggregatefunction.md#data-type-aggregatefunction).
+- `grouping` — Grouping key. Optional. [Int32](../../sql-reference/data-types/int-uint.md).
+
+**Returned value**
+
+- A column with values that result from accumulating input states for a set of block lines, from the first to the current line. Result of function depends on partition of data to blocks and on order of data in block.
+
+Type depends on the aggregate function used.
+
+**Example**
+
+Query:
+
+```sql
+SELECT k, runningAccumulate(sum_k) FROM (SELECT number as k, sumState(k) AS sum_k FROM numbers(10) GROUP BY k ORDER BY k);
+```
+
+Result:
+
+```text
+┌─k─┬─runningAccumulate(sum_k)─┐
+│ 0 │                        0 │
+│ 1 │                        1 │
+│ 2 │                        3 │
+│ 3 │                        6 │
+│ 4 │                       10 │
+│ 5 │                       15 │
+│ 6 │                       21 │
+│ 7 │                       28 │
+│ 8 │                       36 │
+│ 9 │                       45 │
+└───┴──────────────────────────┘
+```
+
+Query:
+
+```sql
+SELECT
+    grouping,
+    item,
+    runningAccumulate(state, grouping)
+FROM
+(
+    SELECT
+        number % 6 AS grouping,
+        number AS item,
+        sumState(number) AS state
+    FROM numbers(15)
+    GROUP BY
+        grouping,
+        item
+    ORDER BY
+        grouping ASC,
+        item ASC
+);
+```
+
+Result:
+
+```text
+┌─grouping─┬─item─┬─runningAccumulate(state, grouping)─┐
+│        0 │    0 │                                  0 │
+│        0 │    6 │                                  6 │
+│        0 │   12 │                                 18 │
+│        1 │    1 │                                  1 │
+│        1 │    7 │                                  8 │
+│        1 │   13 │                                 21 │
+│        2 │    2 │                                  2 │
+│        2 │    8 │                                 10 │
+│        2 │   14 │                                 24 │
+│        3 │    3 │                                  3 │
+│        3 │    9 │                                 12 │
+│        4 │    4 │                                  4 │
+│        4 │   10 │                                 14 │
+│        5 │    5 │                                  5 │
+│        5 │   11 │                                 16 │
+└──────────┴──────┴────────────────────────────────────┘
+
+```
 
 ## joinGet {#joinget}
 
