@@ -937,7 +937,7 @@ runningAccumulate(agg_state[, grouping]);
 **Parameters**
 
 - `agg_state` — State of the aggregate function. [AggregateFunction](../../sql-reference/data-types/aggregatefunction.md#data-type-aggregatefunction).
-- `grouping` — Grouping key. Optional. [Int32](../../sql-reference/data-types/int-uint.md).
+- `grouping` — Grouping key. Optional. The state is reset to zero if the parameter value is changed. It can be any of the [supported data types](../../sql-reference/data-types/index.md) for which the equality operator is defined.
 
 **Returned value**
 
@@ -945,7 +945,9 @@ runningAccumulate(agg_state[, grouping]);
 
 Type depends on the aggregate function used.
 
-**Example**
+**Examples**
+
+Let's consider using `runningAccumulate` to find the cumulative sum of numbers with and without grouping.
 
 Query:
 
@@ -969,6 +971,13 @@ Result:
 │ 9 │                       45 │
 └───┴──────────────────────────┘
 ```
+
+In this case, we have a subquery that generates `sumState` for every number from `0` to `9`. `sumState` is the state of the [sum](../../sql-reference/aggregate-functions/reference.md#agg_function-sum) function that contains the sum of a single number. Let's describe the algorithm of the function.
+
+1. It takes `sumState(0)` for the first row, and gets the result - `0` from it. 
+2. For the second row, the function combines `sumState(0)` and `sumState(1)`, and gets `sumState(0 + 1)` with the value `1` as result. 
+3. For the third row, it takes the previous `sumState(0 + 1)`, adds `sumState(2)`, gets `sumState(0 + 1 + 2)`, writes the result `3`.
+4. The actions are repeated until the block ends.
 
 Query:
 
@@ -1015,6 +1024,8 @@ Result:
 └──────────┴──────┴────────────────────────────────────┘
 
 ```
+
+In this case, the cumulative sum is calculated by group. `sumState` is reset to zero if `grouping` is changed. 
 
 ## joinGet {#joinget}
 
