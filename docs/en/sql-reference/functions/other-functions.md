@@ -1023,7 +1023,7 @@ Result:
 └──────────┴──────┴─────┘
 ```
 
-In this case, the cumulative sum is calculated by group. `sumState` is reset to zero if `grouping` is changed. 
+As you can see, `runningAccumulate` merges states for each group of rows separately.
 
 ## joinGet {#joinget}
 
