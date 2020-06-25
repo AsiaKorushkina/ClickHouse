@@ -941,7 +941,7 @@ runningAccumulate(agg_state[, grouping]);
 
 **Returned value**
 
-- A column with values that result from accumulating input states for a set of block lines, from the first to the current line. Result of function depends on partition of data to blocks and on order of data in block.
+- Each resulting row contains a result of the aggregate function, accumulated for all the input rows from 0 to the current position. `runningAccumulate` resets states for each new data block or when the `grouping` value changes.
 
 Type depends on the aggregate function used.
 
