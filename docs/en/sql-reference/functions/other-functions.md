@@ -937,7 +937,7 @@ runningAccumulate(agg_state[, grouping]);
 **Parameters**
 
 - `agg_state` — State of the aggregate function. [AggregateFunction](../../sql-reference/data-types/aggregatefunction.md#data-type-aggregatefunction).
-- `grouping` — Grouping key. Optional. The state is reset to zero if the parameter value is changed. It can be any of the [supported data types](../../sql-reference/data-types/index.md) for which the equality operator is defined.
+- `grouping` — Grouping key. Optional. The state of the function is reset if the `grouping` value is changed. It can be any of the [supported data types](../../sql-reference/data-types/index.md) for which the equality operator is defined.
 
 **Returned value**
 
