@@ -926,7 +926,7 @@ Takes state of aggregate function. Returns result of aggregation (finalized stat
 
 ## runningAccumulate {#runningaccumulate}
 
-Accumulates states of an aggregate function for each row of block.  The function reset the state for each new block.
+Accumulates states of an aggregate function for each row of block.  The function resets the state for each new block.
 
 **Syntax**
 
@@ -952,24 +952,24 @@ Let's consider using `runningAccumulate` to find the cumulative sum of numbers w
 Query:
 
 ```sql
-SELECT k, runningAccumulate(sum_k) FROM (SELECT number as k, sumState(k) AS sum_k FROM numbers(10) GROUP BY k ORDER BY k);
+SELECT k, runningAccumulate(sum_k) as res FROM (SELECT number as k, sumState(k) AS sum_k FROM numbers(10) GROUP BY k ORDER BY k);
 ```
 
 Result:
 
 ```text
-┌─k─┬─runningAccumulate(sum_k)─┐
-│ 0 │                        0 │
-│ 1 │                        1 │
-│ 2 │                        3 │
-│ 3 │                        6 │
-│ 4 │                       10 │
-│ 5 │                       15 │
-│ 6 │                       21 │
-│ 7 │                       28 │
-│ 8 │                       36 │
-│ 9 │                       45 │
-└───┴──────────────────────────┘
+┌─k─┬─res─┐
+│ 0 │   0 │
+│ 1 │   1 │
+│ 2 │   3 │
+│ 3 │   6 │
+│ 4 │  10 │
+│ 5 │  15 │
+│ 6 │  21 │
+│ 7 │  28 │
+│ 8 │  36 │
+│ 9 │  45 │
+└───┴─────┘
 ```
 
 The subquery generates `sumState` for every number from `0` to `9`. `sumState` returns the state of the [sum](../../sql-reference/aggregate-functions/reference.md#agg_function-sum) function that contains the sum of a single number.
