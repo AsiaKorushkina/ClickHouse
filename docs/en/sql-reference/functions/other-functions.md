@@ -985,23 +985,19 @@ The following example shows the `groupping` parameter usage:
 Query:
 
 ```sql
-SELECT
+SELECT 
     grouping,
     item,
-    runningAccumulate(state, grouping)
-FROM
+    runningAccumulate(state, grouping) AS res
+FROM 
 (
-    SELECT
-        number % 6 AS grouping,
+    SELECT 
+        toInt8(number / 4) AS grouping,
         number AS item,
         sumState(number) AS state
     FROM numbers(15)
-    GROUP BY
-        grouping,
-        item
-    ORDER BY
-        grouping ASC,
-        item ASC
+    GROUP BY item
+    ORDER BY item ASC
 );
 ```
 
