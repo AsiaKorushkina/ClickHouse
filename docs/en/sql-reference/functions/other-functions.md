@@ -977,8 +977,8 @@ The subquery generates `sumState` for every number from `0` to `9`. `sumState` r
 The whole query does the following:
 
 1. For the first row, `runningAccumulate` takes `sumState(0)` and returns `0`. 
-2. For the second row, the function combines `sumState(0)` and `sumState(1)`, and gets `sumState(0 + 1)` with the value `1` as result. 
-3. For the third row, it takes the previous `sumState(0 + 1)`, adds `sumState(2)`, gets `sumState(0 + 1 + 2)`, writes the result `3`.
+2. For the second row, the function merges `sumState(0)` and `sumState(1)` resulting in `sumState(0 + 1)`, and returns `1` as a result.
+3. For the third row, the function merges `sumState(0 + 1)` and `sumState(2)` resulting in `sumState(0 + 1 + 2)`, and returns `3` as a result.
 4. The actions are repeated until the block ends.
 
 Query:
