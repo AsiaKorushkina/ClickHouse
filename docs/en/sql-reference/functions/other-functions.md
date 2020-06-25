@@ -972,7 +972,9 @@ Result:
 └───┴──────────────────────────┘
 ```
 
-In this case, we have a subquery that generates `sumState` for every number from `0` to `9`. `sumState` is the state of the [sum](../../sql-reference/aggregate-functions/reference.md#agg_function-sum) function that contains the sum of a single number. Let's describe the algorithm of the function.
+The subquery generates `sumState` for every number from `0` to `9`. `sumState` returns the state of the [sum](../../sql-reference/aggregate-functions/reference.md#agg_function-sum) function that contains the sum of a single number.
+
+The whole query does the following:
 
 1. It takes `sumState(0)` for the first row, and gets the result - `0` from it. 
 2. For the second row, the function combines `sumState(0)` and `sumState(1)`, and gets `sumState(0 + 1)` with the value `1` as result. 
