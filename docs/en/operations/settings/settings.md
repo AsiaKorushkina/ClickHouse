@@ -652,6 +652,17 @@ The INSERT query also contains data for INSERT that is processed by a separate s
 
 Default value: 256 KiB.
 
+## max\_parser\_depth {#max_parser_depth}
+
+Specifies the maximum recursion depth to control stack size and work with deep queries.
+
+**Possible values**
+
+- Positive integer.
+- 0 — Unlimited recursion depth.
+
+Default value: `1000`.
+
 ## interactive\_delay {#interactive-delay}
 
 The interval in microseconds for checking whether request execution has been cancelled and sending the progress.
