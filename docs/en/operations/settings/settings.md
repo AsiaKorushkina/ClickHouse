@@ -654,12 +654,12 @@ Default value: 256 KiB.
 
 ## max\_parser\_depth {#max_parser_depth}
 
-Specifies the maximum recursion depth to control stack size and work with deep queries.
+Specifies the maximum recursion depth of recursive descent parser to control stack size and work with deep queries.
 
 **Possible values**
 
 - Positive integer.
-- 0 — Unlimited recursion depth.
+- 0 — Unlimited parser depth.
 
 Default value: `1000`.
 
