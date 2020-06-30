@@ -980,6 +980,7 @@ The whole query does the following:
 2. For the second row, the function merges `sumState(0)` and `sumState(1)` resulting in `sumState(0 + 1)`, and returns `1` as a result.
 3. For the third row, the function merges `sumState(0 + 1)` and `sumState(2)` resulting in `sumState(0 + 1 + 2)`, and returns `3` as a result.
 4. The actions are repeated until the block ends.
+
 The following example shows the `groupping` parameter usage:
 
 Query:
