@@ -926,7 +926,7 @@ Takes state of aggregate function. Returns result of aggregation (finalized stat
 
 ## runningAccumulate {#runningaccumulate}
 
-Accumulates states of an aggregate function for each row of block.  The function resets the state for each new block.
+Accumulates states of an aggregate function for each row of a data block.  The function resets the state for each new block.
 
 **Syntax**
 
