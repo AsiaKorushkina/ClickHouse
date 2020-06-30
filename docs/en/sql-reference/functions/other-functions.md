@@ -947,7 +947,7 @@ Type depends on the aggregate function used.
 
 **Examples**
 
-Let's consider using `runningAccumulate` to find the cumulative sum of numbers with and without grouping.
+Consider how you can use `runningAccumulate` to find the cumulative sum of numbers without and with grouping.
 
 Query:
 
