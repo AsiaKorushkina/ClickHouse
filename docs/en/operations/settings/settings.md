@@ -659,7 +659,7 @@ Limits maximum recursion depth in the recursive descent parser. Allows to contro
 Possible values:
 
 - Positive integer.
-- 0 — Unlimited parser depth.
+- 0 — Recursion depth is unlimited.
 
 Default value: `1000`.
 
