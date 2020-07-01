@@ -656,7 +656,7 @@ Default value: 256 KiB.
 
 Limits maximum recursion depth in the recursive descent parser. Allows to control stack size.
 
-**Possible values**
+Possible values:
 
 - Positive integer.
 - 0 — Unlimited parser depth.
