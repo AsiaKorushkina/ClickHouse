@@ -661,7 +661,7 @@ Possible values:
 - Positive integer.
 - 0 — Recursion depth is unlimited.
 
-Default value: `1000`.
+Default value: 1000.
 
 ## interactive\_delay {#interactive-delay}
 
