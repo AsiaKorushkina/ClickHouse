@@ -1268,7 +1268,7 @@ Enables or disables throwing an exception in the [pointInPolygon](../../sql-refe
 
 Possible values:
 
-- 0 — Throwing an exception is disabled. In this case, `pointInPolygon` will accept invalid polygons and return possibly incorrect results for them.
+- 0 — Throwing an exception is disabled. `pointInPolygon` accepts invalid polygons and returns possibly incorrect results for them.
 - 1 — Throwing an exception is enabled.
 
 Default value: 1.
