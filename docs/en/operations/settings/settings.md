@@ -783,6 +783,17 @@ If unsuccessful, several attempts are made to connect to various replicas.
 
 Default value: 50.
 
+## connection\_pool\_max\_wait\_ms {#connection-pool-max-wait-ms}
+
+The wait time in milliseconds for an available connection when a pool is full.
+
+Possible values:
+
+- A non negative integer number.
+- A negative integer number. The timeout is infinite.
+
+Default value: 0.
+
 ## connections\_with\_failover\_max\_tries {#connections-with-failover-max-tries}
 
 The maximum number of connection attempts with each replica for the Distributed table engine.
@@ -811,6 +822,7 @@ If a query from the same user with the same ‘query\_id’ already exists at th
 `1` – Cancel the old query and start running the new one.
 
 Yandex.Metrica uses this parameter set to 1 for implementing suggestions for segmentation conditions. After entering the next character, if the old query hasn’t finished yet, it should be cancelled.
+
 
 ## stream\_flush\_interval\_ms {#stream-flush-interval-ms}
 
