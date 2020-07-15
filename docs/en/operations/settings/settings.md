@@ -805,6 +805,21 @@ Default value: 3.
 Whether to count extreme values (the minimums and maximums in columns of a query result). Accepts 0 or 1. By default, 0 (disabled).
 For more information, see the section “Extreme values”.
 
+## kafka\_max\_wait\_ms {#kafka-max-wait-ms}
+
+The wait time in milliseconds for reading messages from [Kafka](../../engines/table-engines/integrations/kafka.md#kafka) before retry.
+
+Possible values:
+
+- A positive integer number.
+- 0 — The timeout is infinite.
+
+Default value: 5000.
+
+See also:
+
+-   [Apache Kafka](https://kafka.apache.org/)
+
 ## use\_uncompressed\_cache {#setting-use_uncompressed_cache}
 
 Whether to use a cache of uncompressed blocks. Accepts 0 or 1. By default, 0 (disabled).
