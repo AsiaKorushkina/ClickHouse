@@ -838,6 +838,16 @@ If a query from the same user with the same ‘query\_id’ already exists at th
 
 Yandex.Metrica uses this parameter set to 1 for implementing suggestions for segmentation conditions. After entering the next character, if the old query hasn’t finished yet, it should be cancelled.
 
+## replace\_running\_query\_max\_wait\_ms {#replace-running-query-max-wait-ms}
+
+The wait time in milliseconds for running a new query with the same `query_id` if setting [replace_running_query](#replace-running-query) is enabled.
+
+Possible values:
+
+- A positive integer number.
+- 0 — Throwing an exception that does not allow to run the already existing query with the same `query_id`.
+
+Default value: 5000.
 
 ## stream\_flush\_interval\_ms {#stream-flush-interval-ms}
 
