@@ -844,8 +844,8 @@ The wait time for running query with the same `query_id` to finish, when the [re
 
 Possible values:
 
-- A positive integer number.
-- 0 — Throwing an exception that does not allow to run the already existing query with the same `query_id`.
+- Positive integer.
+- 0. Throwing an exception that does not allow to run a new query if the server already executes a query with the  same `query_id`.
 
 Default value: 5000.
 
