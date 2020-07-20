@@ -790,7 +790,7 @@ The wait time in milliseconds for a connection when the connection pool is full.
 Possible values:
 
 - Positive integer.
-- 0. Infinite timeout.
+- 0 — Infinite timeout.
 
 Default value: 0.
 
@@ -812,7 +812,7 @@ The wait time in milliseconds for reading messages from [Kafka](../../engines/ta
 Possible values:
 
 - Positive integer.
-- 0. Infinite timeout.
+- 0 — Infinite timeout.
 
 Default value: 5000.
 
@@ -845,7 +845,7 @@ The wait time for running query with the same `query_id` to finish, when the [re
 Possible values:
 
 - Positive integer.
-- 0. Throwing an exception that does not allow to run a new query if the server already executes a query with the  same `query_id`.
+- 0 — Throwing an exception that does not allow to run a new query if the server already executes a query with the  same `query_id`.
 
 Default value: 5000.
 
