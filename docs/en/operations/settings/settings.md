@@ -811,8 +811,8 @@ The wait time in milliseconds for reading messages from [Kafka](../../engines/ta
 
 Possible values:
 
-- A positive integer number.
-- 0 — The timeout is infinite.
+- Positive integer.
+- 0. Infinite timeout.
 
 Default value: 5000.
 
