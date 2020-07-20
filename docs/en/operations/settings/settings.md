@@ -840,7 +840,7 @@ Yandex.Metrica uses this parameter set to 1 for implementing suggestions for seg
 
 ## replace\_running\_query\_max\_wait\_ms {#replace-running-query-max-wait-ms}
 
-The wait time in milliseconds for running a new query with the same `query_id` if setting [replace_running_query](#replace-running-query) is enabled.
+The wait time for running query with the same `query_id` to finish, when the [replace_running_query](#replace-running-query) setting is active.
 
 Possible values:
 
