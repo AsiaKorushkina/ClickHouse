@@ -789,8 +789,8 @@ The wait time in milliseconds for an available connection when a pool is full.
 
 Possible values:
 
-- A non negative integer number.
-- A negative integer number. The timeout is infinite.
+- Positive integer.
+- 0. Infinite timeout.
 
 Default value: 0.
 
