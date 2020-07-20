@@ -785,7 +785,7 @@ Default value: 50.
 
 ## connection\_pool\_max\_wait\_ms {#connection-pool-max-wait-ms}
 
-The wait time in milliseconds for an available connection when a pool is full.
+The wait time in milliseconds for a connection when the connection pool is full.
 
 Possible values:
 
